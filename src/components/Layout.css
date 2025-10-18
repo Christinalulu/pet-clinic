@@ -1,0 +1,122 @@
+
+.layout-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  max-width: 150px;
+  z-index: 30;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    max-width: 100px;
+  }
+}
+/* Navbar */
+.navbar-overlay {
+  position: absolute;
+  top: 1rem;            
+  right: 1rem;          
+  display: flex;
+  gap: 2rem;            
+  padding: 0.75rem 1.5rem; 
+  border-radius: 8px;
+  z-index: 20;
+  font-size: 1.25rem;   
+}
+
+.navbar-overlay a {
+  font-size: inherit;   
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar-overlay a:hover {
+  color: #00ffd0;
+  text-decoration: underline;
+}
+
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 2rem 1rem 10rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Sticky footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+
+.navbar-overlay a.active {
+  color: #00ffd0;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+
+/* When the Book page is shown, let its own viewport control spacing/scroll */
+/* Let the Book page control its own centering/spacing */
+.overlay:has(.book-viewport) {
+    padding: 0;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+}
+

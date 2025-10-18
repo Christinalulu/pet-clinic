@@ -1,0 +1,63 @@
+
+/* full page center */
+.confirm-page {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+/* card */
+.confirm-card {
+    width: min(920px, 96vw);
+    background: rgba(0,0,0,.80);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+    color: #fff;
+    box-shadow: 0 20px 48px rgba(0,0,0,.55);
+    padding: 1.2rem 1.3rem 1.1rem;
+}
+
+.confirm-title {
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-bottom: .6rem;
+    color: #e8f5e9;
+}
+
+.confirm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .7rem 1.2rem;
+}
+.confirm-grid .k { font-weight: 800; opacity: .9; }
+.confirm-grid .v { opacity: .98; }
+.confirm-grid .span2 { grid-column: span 2; }
+
+.confirm-actions {
+    margin-top: .9rem;
+    display: flex;
+    gap: .6rem;
+    justify-content: flex-end;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: .6rem 1rem;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: .98rem;
+}
+.btn-primary {
+    background: linear-gradient(180deg,#4CAF50,#3a9641);
+    color:#fff;
+}
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-secondary { background: rgba(255,255,255,.08); color:#fff; }
+.btn-secondary:hover { background: rgba(255,255,255,.16); }
+
+@media (max-width: 720px) {
+    .confirm-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,225 @@
+/* ---------- page constants ---------- */
+:root {
+    --header-h: 72px;  /* navbar height (match Layout) */
+    --footer-h: 96px;  /* footer height  (match Layout) */
+}
+
+/* 1) A viewport wrapper that truly centers the card */
+/* viewport wrapper: keep it centered; minimal padding since JS measures nav/footer */
+.book-viewport {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 12px 16px;  /* keep small; JS handles footer space */
+    position: relative;
+    z-index: 1900;
+}
+
+/* booking card: a bit smaller by default */
+.book-appointment-container {
+    width: clamp(360px, 70vw, 1100px);
+    background: #1a1124;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.45);
+    text-align: left;
+    margin: 0;
+    padding: 0.75rem 1rem 1rem;
+    position: relative;
+    z-index: 3000;
+    transform-origin: top center;     /* scaling is applied from TS */
+}
+
+
+/* ---- heading ---- */
+.book-appointment-container h2 {
+    margin: 0 0 0.7rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ecf0f4;
+}
+.book-appointment-container h2::after {
+    content: "";
+    display: block;
+    margin: .35rem auto .2rem;
+    width: 52%;
+    border-bottom: 2px solid #3b82f6;
+}
+
+/* ---- form layout ---- */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem .9rem;
+}
+.form-group { display: flex; flex-direction: column; min-width: 0; }
+
+label {
+    font-weight: 600;
+    margin-bottom: .22rem;
+    font-size: .9rem; /* a touch smaller */
+    letter-spacing: .1px;
+}
+
+input, select, textarea, .custom-datepicker {
+    padding: .4rem .5rem;
+    border-radius: 6px;
+    border: none;
+    font-size: .92rem;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+input:focus, select:focus, textarea:focus, .custom-datepicker:focus {
+    outline: 2px solid #3b82f6;
+}
+
+/* fieldsets */
+.fieldset {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem .9rem;
+    padding: .7rem .8rem .6rem;
+    margin: .35rem 0 .75rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+}
+.fieldset > legend {
+    padding: 0 .35rem;
+    font-size: .96rem;
+    font-weight: 700;
+    color: #e5e7eb;
+    letter-spacing: .2px;
+}
+.fieldset > legend::before { content: "🐾 "; }
+.fieldset .custom-datepicker { width: 100%; }
+
+.submit-btn {
+    grid-column: span 2;
+    justify-self: center;
+    background-color: #45a049;
+    color: #fff;
+    padding: .58rem 1.05rem;
+    border: none;
+    border-radius: 8px;
+    font-size: .96rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, background-color .2s ease, outline-color .2s ease;
+    margin-top: .35rem;
+}
+.submit-btn:hover, .submit-btn:focus {
+    background-color: #4CAF50;
+    transform: translateY(-1px);
+    outline: 2px solid #3b82f6;
+}
+
+/* messages */
+.success-wrapper, .error-wrapper {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin: -.5rem auto .5rem;
+    width: 100%;
+    max-width: 90%;
+}
+.success-msg, .error-msg {
+    padding: .42rem .85rem;
+    border-radius: 6px;
+    font-size: .88rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    max-width: 340px;
+}
+.success-msg { background: #1e6f3d; color: #ffdede; }
+.error-msg   { background: #6f1e1e; color: #ffdede; }
+
+/* loader */
+.loader {
+    margin: 70px auto;
+    width: 42px; height: 42px;
+    border: 6px solid #3b82f6; border-top-color: transparent;
+    border-radius: 50%; animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* stack on narrow screens */
+@media (max-width: 900px) {
+    form { grid-template-columns: 1fr; }
+    .fieldset { grid-template-columns: 1fr; }
+    .submit-btn { width: 100%; }
+}
+
+/* ---------- Confirmation Card ---------- */
+.confirm-card {
+    --surface: rgba(0, 0, 0, 0.72);
+    margin: 0 0 0.9rem 0;
+    padding: 0.85rem 1rem;
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.35);
+}
+
+.confirm-title {
+    font-weight: 800;
+    font-size: 1.02rem;
+    margin-bottom: .55rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #e8f5e9;
+}
+.confirm-title::before {
+    content: "🎉";
+}
+
+.confirm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .55rem .9rem;
+}
+.confirm-grid .k {
+    font-weight: 700;
+    opacity: .9;
+}
+.confirm-grid .v {
+    opacity: .95;
+}
+.confirm-grid .span2 {
+    grid-column: span 2;
+}
+
+.confirm-actions {
+    margin-top: .75rem;
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end;
+}
+.btn-primary,
+.btn-secondary {
+    padding: .5rem .85rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.btn-primary {
+    background: linear-gradient(180deg, #4CAF50, #3a9641);
+    color: #fff;
+}
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+/* responsive */
+@media (max-width: 900px) {
+    .confirm-grid { grid-template-columns: 1fr; }
+}
+

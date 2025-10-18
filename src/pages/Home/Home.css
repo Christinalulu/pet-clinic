@@ -1,0 +1,53 @@
+.cta-button {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  padding: 12px 24px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  padding: 0 1rem;
+}
+
+.home-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .home-content h1 {
+    font-size: 1.5rem;
+  }
+  .home-content p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+
+
+
