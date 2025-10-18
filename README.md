@@ -1,17 +1,53 @@
-# Pet Clinic — Frontend
+# 🐾 Dyreklinikk – Veterinary Booking Platform (Frontend)
 
-A React + TypeScript single-page application (SPA) for booking and managing clinic appointments, built with Vite.
+🛠️ Project Background
+
+This is a frontend project I built in my free time. It was originally meant to work with a backend API, but since I don’t have access to that backend anymore (the API isn’t publicly available), I replaced it with a dummy backend using static data.
+
+All the data is provided through a local file called mockRepo.ts, which simulates API calls so the app can run without a real server.
+
+The frontend is built as a modern React + TypeScript single-page application, using:
+
+Vite for fast development and build
+
+TailwindCSS and custom CSS for styling
+
+Even without the original backend, the application works fully in the browser thanks to mock data and local state management.
 
 ---
 
-## 🚀 Tech Stack
+## ✅ Tech Stack
 
-- **React 18** + **React DOM**
-- **TypeScript**
-- **Vite** (dev server & build)
-- **React Router**, **Axios**, **Zustand**
-- **react-hook-form**, **react-datepicker**, **date-fns**
-- Dev tooling: **ESLint** + **Prettier**
+**Core**
+- React 18
+- TypeScript
+- Vite
+
+**Routing & Forms**
+- React Router DOM
+- React Hook Form
+- React Datepicker
+
+**State Management**
+- Zustand
+
+**HTTP & Utilities**
+- Axios
+- Date-fns
+
+**Styling**
+- TailwindCSS
+- Custom CSS modules
+
+**Tooling**
+- ESLint
+- Prettier
+- TypeScript Compiler
+
+---
+
+## ✅ Project Structure
+
 
 > **Recommended Node version:** **Node.js 18+ (LTS)**
 
@@ -23,22 +59,10 @@ A React + TypeScript single-page application (SPA) for booking and managing clin
    ```bash
    npm install
 
-2. **Run the dev server** 
-    ```bash
-   npm run dev
-   
-3. **(Optional) Build for production** 
-     ```bash
-   npm run build
+| Script            | Description                          |
+  | ----------------- | ------------------------------------ |
+| `npm run dev`     | Start Vite development server        |
+| `npm run build`   | Compile TypeScript + build with Vite |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint`    | Run ESLint for code quality          |
 
-4. **(Optional) Preview the production build**
-     ```bash
-   npm run preview
-
-- **dev – start Vite dev server**
-
-- **build – TypeScript build + Vite production build**
-
-- **preview – serve the built app locally**
-
-- **lint – run ESLint**
