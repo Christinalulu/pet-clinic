@@ -21,13 +21,13 @@ type Result = Suggestion;
 export default function SearchDoctor() {
     const navigate = useNavigate();
 
-    // data
+
     const [clinics, setClinics] = useState<Clinic[]>([]);
     const [specialities, setSpecialities] = useState<Speciality[]>([]);
     const [doctors, setDoctors] = useState<Doctor[]>([]);
     const [booting, setBooting] = useState(true);
 
-    // ui state
+
     const [searchTerm, setSearchTerm] = useState("");
     const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
     const [open, setOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function SearchDoctor() {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const listRef = useRef<HTMLUListElement | null>(null);
 
-    // load all data
+
     useEffect(() => {
         let alive = true;
         (async () => {
@@ -63,11 +63,11 @@ export default function SearchDoctor() {
         return () => { alive = false; };
     }, []);
 
-    // helpers
+
     const clinicById = useMemo(() => new Map(clinics.map(c => [c.id, c])), [clinics]);
     const specById   = useMemo(() => new Map(specialities.map(s => [s.id, s.name])), [specialities]);
 
-    // build a rich index for suggestions/results
+
     const index: Suggestion[] = useMemo(() => {
         return doctors.map(d => {
             const c = clinicById.get(d.clinicId);
@@ -91,7 +91,7 @@ export default function SearchDoctor() {
         });
     }, [doctors, clinicById, specById]);
 
-    // compute suggestions
+
     function computeSuggestions(term: string, limit = 8): Suggestion[] {
         const q = term.trim().toLowerCase();
         if (!q) return index.slice(0, 6);
@@ -106,7 +106,7 @@ export default function SearchDoctor() {
         return [...starts, ...includes].slice(0, limit);
     }
 
-    // events
+
     function onChange(e: React.ChangeEvent<HTMLInputElement>) {
         const val = e.target.value;
         setSearchTerm(val);
@@ -150,7 +150,7 @@ export default function SearchDoctor() {
         setResults([]);
     }
 
-    // click outside to close
+
     useEffect(() => {
         function onDocClick(e: MouseEvent) {
             const t = e.target as Node;
@@ -162,7 +162,7 @@ export default function SearchDoctor() {
         return () => document.removeEventListener("click", onDocClick);
     }, []);
 
-    // manual search (kept)
+
     async function handleSearch() {
         setLoading(true);
         setError(null);
@@ -246,13 +246,13 @@ export default function SearchDoctor() {
                 )}
             </div>
 
-            {/* Status */}
+
             <div className="status-space">
                 {loading && <p>Searching…</p>}
                 {!loading && error && <p className="text-red-500">{error}</p>}
             </div>
 
-            {/* Preview card after click */}
+
             {preview && (
                 <div className="preview-card" role="region" aria-live="polite">
                     <p><strong>👨‍⚕️ Name:</strong> {preview.fullName}</p>
@@ -273,7 +273,7 @@ export default function SearchDoctor() {
                 </div>
             )}
 
-            {/* Manual results (also rich) */}
+
             {results.length > 0 && (
                 <ul className="results-grid">
                     {results.map(r => (
